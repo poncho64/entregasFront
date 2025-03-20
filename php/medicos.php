@@ -8,12 +8,12 @@ if ($conn->connect_error) {
 }
 
 // Consulta para obtener los médicos
-$sql = "SELECT CONCAT(nombre_medico, ' ', apellido_medico) AS nombre_completo FROM medicos";
-$result = $conn->query($sql);
+$datos = "SELECT CONCAT(nombre_medico, ' ', apellido_medico) AS nombre_completo FROM medicos";
+$resultados = $conn->query($datos);
 
-if ($result->num_rows > 0) {
+if ($resultados->num_rows > 0) {
     $medicos = [];
-    while ($row = $result->fetch_assoc()) {
+    while ($row = $resultados->fetch_assoc()) {
         $medicos[] = $row["nombre_completo"];
     }
     echo json_encode(["success" => true, "data" => $medicos]);

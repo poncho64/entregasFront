@@ -8,12 +8,12 @@ if ($conn->connect_error) {
 }
 
 // Consulta para obtener las clínicas
-$sql = "SELECT nombre_clinica FROM clinicas";
-$result = $conn->query($sql);
+$datos = "SELECT nombre_clinica FROM clinicas";
+$resultados = $conn->query($datos);
 
-if ($result->num_rows > 0) {
+if ($resultados->num_rows > 0) {
     $clinicas = [];
-    while ($row = $result->fetch_assoc()) {
+    while ($row = $resultados->fetch_assoc()) {
         $clinicas[] = $row["nombre_clinica"];
     }
     echo json_encode(["success" => true, "data" => $clinicas]);

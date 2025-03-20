@@ -12,10 +12,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $hash_contrasena = password_hash($contrasena_admin, PASSWORD_DEFAULT);
 
     // Insertar el nuevo administrador en la base de datos
-    $stmt = $conn->prepare("INSERT INTO administrador (usuario_admin, contrasena_admin) VALUES (?, ?)");
-    $stmt->bind_param("ss", $usuario_admin, $hash_contrasena);
+    $datostb = $conn->prepare("INSERT INTO administrador (usuario_admin, contrasena_admin) VALUES (?, ?)");
+    $datostb->bind_param("ss", $usuario_admin, $hash_contrasena);
 
-    if ($stmt->execute()) {
+    if ($datostb->execute()) {
         // Mensaje de éxito
         echo "<script>alert('Administrador guardado con éxito'); window.location.href='../ingresar_admin.html';</script>";
     } else {
@@ -23,6 +23,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "<script>alert('Error al guardar el administrador: " . $stmt->error . "'); window.location.href='../ingresar_admin.html';</script>";
     }
 
-    $stmt->close();
+    $datostb->close();
     $conn->close();
 }

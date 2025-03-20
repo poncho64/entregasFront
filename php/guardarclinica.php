@@ -12,18 +12,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $contacto_clinica = $_POST["contacto_clinica"];
 
     // Preparar la consulta para insertar los datos en la tabla de clínicas
-    $stmt = $conn->prepare("INSERT INTO clinicas (nombre_clinica, direccion_clinica, celular_clinica, fijo_clinica, contacto_clinica) VALUES (?, ?, ?, ?, ?)");
-    $stmt->bind_param("sssss", $nombre_clinica, $direccion_clinica, $celular_clinica, $fijo_clinica, $contacto_clinica);
+    $resultados = $conn->prepare("INSERT INTO clinicas (nombre_clinica, direccion_clinica, celular_clinica, fijo_clinica, contacto_clinica) VALUES (?, ?, ?, ?, ?)");
+    $resultados->bind_param("sssss", $nombre_clinica, $direccion_clinica, $celular_clinica, $fijo_clinica, $contacto_clinica);
 
     // Ejecutar la consulta y verificar si fue exitosa
-    if ($stmt->execute()) {
+    if ($resultados->execute()) {
         echo "<script>alert('¡Clínica registrada con éxito!'); window.location.href='../ingresarmedicosclinica.html';</script>";
     } else {
-        echo "<script>alert('Error al registrar la clínica: " . $stmt->error . "'); window.location.href='../ingresarmedicosclinica.html';</script>";
+        echo "<script>alert('Error al registrar la clínica: " . $resultados->error . "'); window.location.href='../ingresarmedicosclinica.html';</script>";
     }
 
     // Cerrar la declaración y la conexión
-    $stmt->close();
+    $resultados->close();
     $conn->close();
 } else {
     echo "<script>alert('Método no permitido'); window.location.href='../ingresarmedicosclinica.html';</script>";

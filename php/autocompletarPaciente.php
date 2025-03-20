@@ -12,14 +12,14 @@ if (isset($_GET["doc_paciente"])) {
     $doc_paciente = $conn->real_escape_string($_GET["doc_paciente"]);
 
     // Consulta para buscar el paciente
-    $sql = "SELECT nombre_paciente, apellido_paciente, celular_paciente 
+    $datos = "SELECT nombre_paciente, apellido_paciente, celular_paciente 
             FROM pacientes 
             WHERE doc_paciente = '$doc_paciente'";
 
-    $result = $conn->query($sql);
+    $resultados = $conn->query($datos);
 
-    if ($result->num_rows > 0) {
-        $paciente = $result->fetch_assoc();
+    if ($resultados->num_rows > 0) {
+        $paciente = $resultados->fetch_assoc();
         echo json_encode([
             "success" => true,
             "nombre" => $paciente["nombre_paciente"],

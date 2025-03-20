@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     } else {
         echo "Usuario no encontrado";
-        echo "<script>alert('Usuario no encontrado'); window.location.href='../admincentromedico.html';</script>";
+        echo "<script>alert('Usuario no encontrado'); window.location.href='../superAdmin.html';</script>";
     }
 
     $rutaDefinida->close();

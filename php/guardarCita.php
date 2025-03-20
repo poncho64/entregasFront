@@ -46,40 +46,41 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Validación: Evitar duplicados
-    $sql = "SELECT * FROM citas 
+
+    $datos = "SELECT * FROM citas 
             WHERE doc_paciente = '$doc_paciente' 
             AND nombre_medico = '$nombre_medico' 
             AND fecha_cita = '$fecha_cita' 
             AND hora_cita = '$hora_cita'";
 
-    $result = $conn->query($sql);
+    $resultados = $conn->query($datos);
 
-    if ($result->num_rows > 0) {
+    if ($resultados->num_rows > 0) {
         die("Error: Ya existe una cita registrada con los mismos datos.");
     }
 
     // Preparar la consulta para evitar inyecciones SQL
-    $stmt = $conn->prepare("INSERT INTO citas (doc_paciente, nombre_paciente, apellido_paciente, celular_paciente, nombre_medico, nombre_clinica, fecha_cita, hora_cita) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+    $campostb = $conn->prepare("INSERT INTO citas (doc_paciente, nombre_paciente, apellido_paciente, celular_paciente, nombre_medico, nombre_clinica, fecha_cita, hora_cita) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
 
-    if (!$stmt) {
+    if (!$campostb) {
         die("Error en la preparación de la consulta: " . $conn->error);
     }
 
     // Enlazar los parámetros
-    $stmt->bind_param("ssssssss", $doc_paciente, $nombre_paciente, $apellido_paciente, $celular_paciente, $nombre_medico, $nombre_clinica, $fecha_cita, $hora_cita);
+    $campostb->bind_param("ssssssss", $doc_paciente, $nombre_paciente, $apellido_paciente, $celular_paciente, $nombre_medico, $nombre_clinica, $fecha_cita, $hora_cita);
 
     // Ejecutar la consulta
-    if ($stmt->execute()) {
+    if ($campostb->execute()) {
         echo "¡Cita registrada correctamente!";
-        header("Location: ../registroCitas.html"); // Redirige a registroCitas.html
+        echo '<meta http-equiv="refresh" content="2;url=../registroCitas.html">';
         exit(); // Asegura que el script se detenga después de la redirección
     } else {
-        echo "Error al guardar la cita: " . $stmt->error;
+        echo "Error al guardar la cita: " . $campostb->error;
     }
 
 
     // Cerrar la consulta preparada
-    $stmt->close();
+    $campostb->close();
 }
 
 // Cierra la conexión
