@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-03-2025 a las 18:44:52
+-- Tiempo de generación: 20-03-2025 a las 20:29:25
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -38,9 +38,9 @@ CREATE TABLE `administrador` (
 --
 
 INSERT INTO `administrador` (`id_admin`, `usuario_admin`, `contrasena_admin`) VALUES
-(3, 'luisfelipe', '$2y$10$kBOM967r1ldie2N8H2Eo9e3V.K9OSs2pN/zLWTYsk9OmLr0tG7W0y'),
-(4, 'poncho', '$2y$10$BFBVG.ynH1AHJabt./IVMeXWZO7I2clIaoLY9Wp3SfBRUZ9Ot9y0C'),
-(5, 'julian Serna', '$2y$10$NUjT.7PjtalEE8TCHpXQjOEfcN8FgdTvqdGAfJrcSd4wld2ZYCszC');
+(5, 'julian Serna', '$2y$10$NUjT.7PjtalEE8TCHpXQjOEfcN8FgdTvqdGAfJrcSd4wld2ZYCszC'),
+(6, 'luisfelipe', '$2y$10$v0mGybDp3dLONHqiSXybg.QgUrq3FxE987r4ARJ.wUSnWUOpr.lL2'),
+(7, 'poncho', '$2y$10$kfXI0wqz81sz7LKzuM39Z.ZLn.WMz4eghYoYY2ixwy.02fo.S/Tci');
 
 -- --------------------------------------------------------
 
@@ -72,7 +72,16 @@ INSERT INTO `citas` (`id_cita`, `doc_paciente`, `nombre_paciente`, `apellido_pac
 (5, '1100', 'Justo', 'Bueno', '1500', 'alfonso serna', 'la hortua', '2025-03-18', '13:30:00'),
 (6, '9855310', 'Alfonso', 'Serna', '3205934267', 'luisfelipe serna', 'Santa Fe', '2025-03-18', '14:30:00'),
 (7, '1100', 'Justo', 'Bueno', '1500', 'alfonso serna', 'la hortua', '2025-03-18', '14:30:00'),
-(8, '1100', 'Justo', 'Bueno', '1500', 'alfonso serna', 'la hortua', '2025-03-19', '15:00:00');
+(8, '1100', 'Justo', 'Bueno', '1500', 'alfonso serna', 'la hortua', '2025-03-19', '15:00:00'),
+(9, '9855310', 'Alfonso', 'Serna', '3205934267', 'alfonso serna', 'la hortua', '2025-03-20', '14:00:00'),
+(10, '1100', 'Justo', 'Bueno', '1500', 'luisfelipe serna', 'Santa Fe', '2025-03-26', '09:30:00'),
+(11, '121212', 'bertulio', 'zuluaga', '123456789', 'alfonso serna', 'la hortua', '2025-03-26', '11:30:00'),
+(12, '1100', 'Justo', 'Bueno', '1500', 'luisfelipe serna', 'Santa Fe', '2025-03-31', '08:00:00'),
+(13, '121212', 'bertulio', 'zuluaga', '123456789', 'alfonso serna', 'la hortua', '2025-03-31', '14:00:00'),
+(14, '9855310', 'Alfonso', 'Serna', '3205934267', 'luisfelipe serna', 'Santa Fe', '2025-03-25', '08:00:00'),
+(15, '1100', 'Justo', 'Bueno', '1500', 'alfonso serna', 'la hortua', '2025-03-28', '16:00:00'),
+(16, '9855310', 'Alfonso', 'Serna', '3205934267', 'alfonso serna', 'la hortua', '2025-03-26', '16:00:00'),
+(17, '9855310', 'Alfonso', 'Serna', '3205934267', 'alfonso serna', 'la hortua', '2025-03-28', '09:00:00');
 
 -- --------------------------------------------------------
 
@@ -95,7 +104,8 @@ CREATE TABLE `clinicas` (
 
 INSERT INTO `clinicas` (`id`, `nombre_clinica`, `direccion_clinica`, `celular_clinica`, `fijo_clinica`, `contacto_clinica`) VALUES
 (1, 'la hortua', 'centro', '318', '518', 0),
-(2, 'Santa Fe', 'Norte', '351', '85556231', 0);
+(2, 'Santa Fe', 'Norte', '351', '85556231', 0),
+(3, 'san juan de dios', 'pensilvania', '3053142801', '8555143', 0);
 
 -- --------------------------------------------------------
 
@@ -117,7 +127,8 @@ CREATE TABLE `medicos` (
 
 INSERT INTO `medicos` (`id_medico`, `nombre_medico`, `apellido_medico`, `celular_medico`, `contrasena_medico`) VALUES
 (1, 'alfonso', 'serna', '3205934267', '$2y$10$BpwF5uGLn9T1zkjjjbOYOOLE9Ksz1KAc29CdUs9wuvy37SR46pklK'),
-(2, 'luisfelipe', 'serna', '321', '$2y$10$j152BpnhMDqnFsGhJFKLkuMlS7yJnhWTrWgmQkSQbsPudxjPs//Vy');
+(2, 'luisfelipe', 'serna', '321', '$2y$10$j152BpnhMDqnFsGhJFKLkuMlS7yJnhWTrWgmQkSQbsPudxjPs//Vy'),
+(3, 'juliana', 'sarna', '3053152801', '$2y$10$XpwzeG8YfnFt1wK.2C8rH.tH.GtJx9cy98g0lQRLLgMTLoM8/v2He');
 
 -- --------------------------------------------------------
 
@@ -212,25 +223,25 @@ ALTER TABLE `superadmin`
 -- AUTO_INCREMENT de la tabla `administrador`
 --
 ALTER TABLE `administrador`
-  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `citas`
 --
 ALTER TABLE `citas`
-  MODIFY `id_cita` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_cita` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT de la tabla `clinicas`
 --
 ALTER TABLE `clinicas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `medicos`
 --
 ALTER TABLE `medicos`
-  MODIFY `id_medico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_medico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `pacientes`
