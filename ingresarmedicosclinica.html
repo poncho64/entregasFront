@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registro Clínicas y Médicos</title>
+    <link rel="stylesheet" href="css/styleclimedico.css" />
+    <!-- Enlace al CSS ajustado -->
+  </head>
+  <body>
+    <main class="contenedor">
+      <h1>Registro de Clínicas y Médicos</h1>
+      <div class="formularios">
+        <!-- Formulario para Clínicas -->
+        <form action="php/guardarclinica.php" method="POST" class="formulario">
+          <h2>Registro de Clínica</h2>
+          <label for="nombre_clinica">Nombre:</label>
+          <input
+            type="text"
+            id="nombre_clinica"
+            name="nombre_clinica"
+            placeholder="Nombre de la clínica"
+            required
+          />
+
+          <label for="direccion_clinica">Dirección:</label>
+          <input
+            type="text"
+            id="direccion_clinica"
+            name="direccion_clinica"
+            placeholder="Dirección de la clínica"
+            required
+          />
+
+          <label for="celular_clinica">Celular:</label>
+          <input
+            type="text"
+            id="celular_clinica"
+            name="celular_clinica"
+            placeholder="Celular de contacto"
+            required
+          />
+
+          <label for="fijo_clinica">Teléfono Fijo:</label>
+          <input
+            type="text"
+            id="fijo_clinica"
+            name="fijo_clinica"
+            placeholder="Teléfono fijo"
+            required
+          />
+
+          <label for="contacto_clinica">Contacto:</label>
+          <input
+            type="text"
+            id="contacto_clinica"
+            name="contacto_clinica"
+            placeholder="ID del contacto"
+            required
+          />
+
+          <button type="submit" class="boton">Guardar Clínica</button>
+        </form>
+
+        <!-- Formulario para Médicos -->
+        <form action="php/guardarmedico.php" method="POST" class="formulario">
+          <h2>Registro de Médico</h2>
+          <label for="nombre_medico">Nombre:</label>
+          <input
+            type="text"
+            id="nombre_medico"
+            name="nombre_medico"
+            placeholder="Nombre del médico"
+            required
+          />
+
+          <label for="apellido_medico">Apellido:</label>
+          <input
+            type="text"
+            id="apellido_medico"
+            name="apellido_medico"
+            placeholder="Apellido del médico"
+            required
+          />
+
+          <label for="celular_medico">Celular:</label>
+          <input
+            type="text"
+            id="celular_medico"
+            name="celular_medico"
+            placeholder="Celular del médico"
+            required
+          />
+
+          <label for="contrasena_medico">Contraseña:</label>
+          <input
+            type="password"
+            id="contrasena_medico"
+            name="contrasena_medico"
+            placeholder="Contraseña"
+            required
+          />
+
+          <button type="submit" class="boton">Guardar Médico</button>
+        </form>
+      </div>
+    </main>
+  </body>
+</html>

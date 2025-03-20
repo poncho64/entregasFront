@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registro de Citas</title>
+    <link rel="stylesheet" href="css/styles_Citas.css" />
+    <!-- Flatpickr para personalizar el calendario -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  </head>
+  <body>
+    <div class="contenedor">
+      <form action="php/guardarCita.php" method="POST">
+        <h1>Registro de Citas</h1>
+
+        <label for="doc_paciente">Documento del Paciente:</label>
+        <input
+          type="text"
+          id="doc_paciente"
+          name="doc_paciente"
+          required
+          onblur="autocompletarPaciente()"
+        />
+
+        <label for="nombre_paciente">Nombre del Paciente:</label>
+        <input
+          type="text"
+          id="nombre_paciente"
+          name="nombre_paciente"
+          readonly
+        />
+
+        <label for="apellido_paciente">Apellido del Paciente:</label>
+        <input
+          type="text"
+          id="apellido_paciente"
+          name="apellido_paciente"
+          readonly
+        />
+
+        <label for="celular_paciente">Celular del Paciente:</label>
+        <input
+          type="text"
+          id="celular_paciente"
+          name="celular_paciente"
+          readonly
+        />
+
+        <label for="nombre_medico">Médico:</label>
+        <select id="nombre_medico" name="nombre_medico" required>
+          <option value="">Selecciona un médico</option>
+        </select>
+
+        <label for="nombre_clinica">Clínica:</label>
+        <select id="nombre_clinica" name="nombre_clinica" required>
+          <option value="">Selecciona una clínica</option>
+        </select>
+
+        <label for="fecha_cita">Fecha de la Cita:</label>
+        <input type="text" id="fecha_cita" name="fecha_cita" required />
+
+        <label for="hora_cita">Hora de la Cita:</label>
+        <input type="text" id="hora_cita" name="hora_cita" required />
+
+        <button type="submit">Guardar Cita</button>
+      </form>
+    </div>
+
+    <script>
+      // Configuración de Flatpickr
+      document.addEventListener("DOMContentLoaded", function () {
+        // Selector de fecha
+        flatpickr("#fecha_cita", {
+          dateFormat: "Y-m-d",
+          disable: [
+            function (date) {
+              return date.getDay() === 0; // Desactiva domingos
+            },
+          ],
+          locale: "es",
+        });
+
+        // Selector de hora con intervalos de 30 minutos
+        flatpickr("#hora_cita", {
+          enableTime: true,
+          noCalendar: true,
+          dateFormat: "H:i",
+          time_24hr: true,
+          enable: [
+            { from: "08:00", to: "11:30" },
+            { from: "13:00", to: "16:30" },
+          ],
+          minuteIncrement: 30,
+        });
+
+        // Cargar médicos y clínicas dinámicamente
+        cargarMedicos();
+        cargarClinicas();
+      });
+
+      function cargarMedicos() {
+        fetch("php/medicos.php")
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.success) {
+              const selectMedicos = document.getElementById("nombre_medico");
+              selectMedicos.innerHTML = "";
+              data.data.forEach((medico) => {
+                const option = document.createElement("option");
+                option.value = medico;
+                option.textContent = medico;
+                selectMedicos.appendChild(option);
+              });
+            } else {
+              alert(data.message || "Error al cargar los médicos.");
+            }
+          })
+          .catch((error) => {
+            console.error("Error al cargar médicos:", error);
+            alert("Hubo un problema al intentar cargar la lista de médicos.");
+          });
+      }
+
+      function cargarClinicas() {
+        fetch("php/clinicas.php")
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.success) {
+              const selectClinicas = document.getElementById("nombre_clinica");
+              selectClinicas.innerHTML = "";
+              data.data.forEach((clinica) => {
+                const option = document.createElement("option");
+                option.value = clinica;
+                option.textContent = clinica;
+                selectClinicas.appendChild(option);
+              });
+            } else {
+              alert(data.message || "Error al cargar las clínicas.");
+            }
+          })
+          .catch((error) => {
+            console.error("Error al cargar clínicas:", error);
+            alert("Hubo un problema al intentar cargar la lista de clínicas.");
+          });
+      }
+
+      function autocompletarPaciente() {
+        const docPaciente = document.getElementById("doc_paciente").value;
+
+        if (docPaciente.trim() === "") {
+          alert("Por favor, ingresa el documento del paciente.");
+          return;
+        }
+
+        fetch(`php/autocompletarPaciente.php?doc_paciente=${docPaciente}`)
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("Error en la respuesta del servidor.");
+            }
+            return response.json();
+          })
+          .then((data) => {
+            if (data.success) {
+              document.getElementById("nombre_paciente").value = data.nombre;
+              document.getElementById("apellido_paciente").value =
+                data.apellido;
+              document.getElementById("celular_paciente").value = data.celular;
+            } else {
+              alert(data.message || "Paciente no encontrado.");
+            }
+          })
+          .catch((error) => {
+            console.error("Error al autocompletar:", error);
+            alert("Hubo un problema al intentar autocompletar los datos.");
+          });
+      }
+    </script>
+  </body>
+</html>

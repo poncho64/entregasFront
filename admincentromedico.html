@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ingreso de Usuario</title>
+    <link rel="stylesheet" href="css/stylesRegistro.css" />
+  </head>
+  <body>
+    <main class="contenedor">
+      <h1>Clinicas-Medicos</h1>
+      <div class="card">
+        <!-- Formulario de ingreso -->
+        <form action="php/procesar_admin.php" method="POST">
+          <label for="usuario_admin">Documento:</label>
+          <input type="text" id="usuario_admin" name="usuario_admin" required />
+
+          <label for="contrasena_admin">Contraseña:</label>
+          <input
+            type="password"
+            id="contrasena_admin"
+            name="contrasena_admin"
+            required
+          />
+
+          <button type="submit">Ingresar</button>
+        </form>
+      </div>
+    </main>
+  </body>
+</html>

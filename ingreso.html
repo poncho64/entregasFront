@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ingreso de Usuario</title>
+    <link rel="stylesheet" href="css/stylesRegistro.css" />
+  </head>
+  <body>
+    <main class="contenedor">
+      <h1>Pedir Cita</h1>
+      <div class="card">
+        <!-- Formulario de ingreso -->
+        <form action="php/procesar_registro.php" method="POST">
+          <label for="doc_paciente">Documento:</label>
+          <input type="text" id="doc_paciente" name="doc_paciente" required />
+
+          <label for="contrasena_paciente">Contraseña:</label>
+          <input
+            type="password"
+            id="contrasena_paciente"
+            name="contrasena_paciente"
+            required
+          />
+
+          <button type="submit">Ingresar</button>
+        </form>
+
+        <!-- Botón para abrir el formulario flotante -->
+        <button id="registrar-btn">Registrarme</button>
+
+        <a href="index.html" class="regresar">Regresar</a>
+      </div>
+
+      <!-- Modal (Formulario Flotante) -->
+      <div id="registro-modal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h2>Registro de Nuevo Usuario</h2>
+          <form
+            action="php/guardar_usuario.php"
+            method="POST"
+            enctype="multipart/form-data"
+          >
+            <label for="doc_paciente_modal">Documento:</label>
+            <input
+              type="text"
+              id="doc_paciente_modal"
+              name="doc_paciente"
+              required
+            />
+
+            <label for="nombre_paciente">Nombre:</label>
+            <input
+              type="text"
+              id="nombre_paciente"
+              name="nombre_paciente"
+              required
+            />
+
+            <label for="apellido_paciente">Apellido:</label>
+            <input
+              type="text"
+              id="apellido_paciente"
+              name="apellido_paciente"
+              required
+            />
+
+            <label for="celular_paciente">Celular:</label>
+            <input
+              type="text"
+              id="celular_paciente"
+              name="celular_paciente"
+              required
+            />
+
+            <label for="correo_paciente">Correo:</label>
+            <input
+              type="email"
+              id="correo_paciente"
+              name="correo_paciente"
+              required
+            />
+
+            <label for="contrasena_paciente_modal">Contraseña:</label>
+            <input
+              type="password"
+              id="contrasena_paciente_modal"
+              name="contrasena_paciente"
+              required
+            />
+
+            <label for="foto_paciente">Foto:</label>
+            <input
+              type="file"
+              id="foto_paciente"
+              name="foto_paciente"
+              accept="image/*"
+              required
+            />
+            <img
+              id="preview"
+              src=""
+              alt="Vista previa de la foto"
+              style="display: none; max-width: 200px; margin-top: 10px"
+            />
+
+            <button type="submit">Registrar</button>
+          </form>
+        </div>
+      </div>
+    </main>
+
+    <script src="js/modal.js"></script>
+  </body>
+</html>

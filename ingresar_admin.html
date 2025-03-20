@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ingresar Nuevo Administrador</title>
+    <link rel="stylesheet" href="css/styles_ingadmin.css" />
+    <!-- CSS ajustado -->
+  </head>
+  <body>
+    <main class="contenedor">
+      <h1>Ingresar Nuevo Administrador</h1>
+      <div class="formulario">
+        <form action="php/guardar_admin.php" method="POST">
+          <label for="usuario_admin">Usuario:</label>
+          <input
+            type="text"
+            id="usuario_admin"
+            name="usuario_admin"
+            placeholder="Escriba el usuario"
+            required
+          />
+
+          <label for="contrasena_admin">Contraseña:</label>
+          <input
+            type="password"
+            id="contrasena_admin"
+            name="contrasena_admin"
+            placeholder="Escriba la contraseña"
+            required
+          />
+
+          <button type="submit" class="boton">Guardar</button>
+        </form>
+        <a href="index.html" class="link">Regresar</a>
+      </div>
+    </main>
+  </body>
+</html>
