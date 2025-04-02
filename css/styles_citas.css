@@ -1,5 +1,6 @@
 /* Estilos generales */
 body {
+  /* Configura el diseño centrado en la pantalla con un fondo neutro y fuente estándar */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11,6 +12,7 @@ body {
 
 /* Contenedor principal */
 .contenedor {
+  /* Define un contenedor centrado con un ancho máximo y diseño vertical */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -22,6 +24,7 @@ body {
 
 /* Estilo del formulario */
 form {
+  /* Configura el formulario con un fondo blanco, sombra suave y bordes redondeados */
   background: white;
   padding: 20px;
   border-radius: 10px;
@@ -31,13 +34,15 @@ form {
 }
 
 form:hover {
-  box-shadow: 18px 8px 20px rgba(2, 156, 10, 0.3); /* Sombra más intensa */
+  /* Aplica una sombra más intensa cuando el usuario pase el mouse sobre el formulario */
+  box-shadow: 18px 8px 20px rgba(2, 156, 10, 0.3);
 }
 
 /* Campos del formulario */
 input,
 select,
 textarea {
+  /* Estilos compartidos para campos de entrada, áreas de texto y listas desplegables */
   width: 100%;
   padding: 10px;
   margin: 10px 0;
@@ -49,6 +54,7 @@ textarea {
 
 /* Botón */
 button {
+  /* Estiliza los botones con color azul, bordes redondeados y efecto de transición */
   background: #007bff;
   color: white;
   border: none;
@@ -60,11 +66,13 @@ button {
 }
 
 button:hover {
-  background: #0056b3; /* Efecto de cambio de color */
+  /* Cambia el color del botón cuando el mouse pasa sobre él */
+  background: #0056b3;
 }
 
 /* Etiquetas */
 label {
+  /* Estiliza las etiquetas de los campos de formulario para mayor claridad */
   font-weight: bold;
   margin-bottom: 5px;
   display: block;
@@ -72,6 +80,7 @@ label {
 
 /* Mensajes de error */
 .error {
+  /* Define el estilo para mostrar mensajes de error en color rojo */
   color: red;
   font-size: 14px;
   margin-top: -5px;
@@ -79,5 +88,6 @@ label {
 
 /* Estilo opcional para listas desplegables */
 select {
+  /* Fondo blanco para listas desplegables */
   background-color: #fff;
 }

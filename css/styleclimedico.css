@@ -1,5 +1,6 @@
 /* Estructura global */
 body {
+  /* Define la fuente y el color de fondo de toda la página, con diseño centrado */
   font-family: Arial, sans-serif;
   background-color: #f8f9fa;
   margin: 0;
@@ -10,6 +11,7 @@ body {
 }
 
 main.contenedor {
+  /* Configuración del contenedor principal con un fondo blanco, padding y sombras */
   width: 90%;
   max-width: 1200px;
   text-align: center;
@@ -20,10 +22,12 @@ main.contenedor {
 }
 
 main.contenedor:hover {
+  /* Efecto de sombra al pasar el mouse sobre el contenedor */
   box-shadow: 18px 8px 20px rgba(2, 156, 10, 0.3);
 }
 
 h1 {
+  /* Estiliza el título principal */
   font-size: 2rem;
   color: #333;
   margin-bottom: 1.5rem;
@@ -31,12 +35,14 @@ h1 {
 
 /* Diseño de los formularios */
 .formularios {
+  /* Distribuye los formularios en una fila con espacio entre ellos */
   display: flex;
   justify-content: space-between;
   gap: 2rem;
 }
 
 .formulario {
+  /* Estilo individual para cada formulario */
   width: 48%;
   text-align: left;
   background: #f8f9fa;
@@ -46,12 +52,14 @@ h1 {
 }
 
 .formulario h2 {
+  /* Encabezado de cada formulario */
   font-size: 1.5rem;
   margin-bottom: 1rem;
   color: #007bff;
 }
 
 label {
+  /* Estilo para las etiquetas de los campos */
   display: block;
   font-weight: bold;
   margin-top: 1rem;
@@ -59,6 +67,7 @@ label {
 }
 
 input {
+  /* Estilo para los campos de entrada */
   width: 100%;
   padding: 10px;
   margin-top: 0.5rem;
@@ -68,10 +77,12 @@ input {
 }
 
 input::placeholder {
+  /* Estilo para el texto de los placeholders */
   color: #aaa;
 }
 
 .boton {
+  /* Estilo para los botones */
   background-color: #007bff;
   color: white;
   border: none;
@@ -86,11 +97,13 @@ input::placeholder {
 }
 
 .boton:hover {
+  /* Efecto al pasar el mouse sobre los botones */
   background-color: #0056b3;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
+  /* Ajusta los formularios al diseño vertical en pantallas pequeñas */
   .formularios {
     flex-direction: column;
     gap: 1.5rem;

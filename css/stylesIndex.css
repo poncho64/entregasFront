@@ -1,56 +1,63 @@
 /* Estilos generales */
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    background-color: #f4f4f4; /* Fondo suave */
+  /* Centra el contenido en la pantalla y establece un fondo neutro */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #f4f4f4; /* Fondo suave */
 }
 
 /* Contenedor principal */
 .contenedor {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+  /* Define un contenedor centrado con diseño vertical y alineación al centro */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 /* Estilo de la tarjeta con sombra */
 .card {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2); /* Sombra suave */
-    max-width: 90%;
-    transition: box-shadow 0.3s ease-in-out;
+  /* Configura la tarjeta con fondo blanco, bordes redondeados y una sombra suave */
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2); /* Sombra suave */
+  max-width: 90%; /* Ajusta el ancho máximo relativo */
+  transition: box-shadow 0.3s ease-in-out;
 }
 
 /* Efecto de sombra más intensa al pasar el mouse */
 .card:hover {
-    box-shadow: 18px 8px 20px rgba(2, 156, 10, 0.3);
+  /* Aplica una sombra más pronunciada cuando el mouse pasa sobre la tarjeta */
+  box-shadow: 18px 8px 20px rgba(2, 156, 10, 0.3);
 }
 
 /* Imagen centrada y en tamaño 7x7 cm */
 .imagen {
-    width: 250px; /* 7cm en píxeles */
-    height: 250px;
-    object-fit: cover;
-    border-radius: 10px;
+  /* Establece un tamaño fijo para la imagen y ajusta su contenido */
+  width: 250px; /* 7cm en píxeles */
+  height: 250px;
+  object-fit: cover; /* Asegura que la imagen se ajuste sin deformarse */
+  border-radius: 10px; /* Bordes redondeados para la imagen */
 }
 
 /* Estilo del enlace */
-.enlace{
-    display: block;
-    margin-top: 10px;
-    padding: 10px 20px;
-    background: #007bff;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background 0.3s;
+.enlace {
+  /* Configura el enlace como un botón con fondo azul y bordes redondeados */
+  display: block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background 0.3s;
 }
 
 .enlace:hover {
-    background: #0056b3;
+  /* Cambia el color del fondo del enlace al pasar el mouse */
+  background: #0056b3;
 }
