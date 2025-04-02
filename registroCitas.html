@@ -1,74 +1,121 @@
 <!DOCTYPE html>
 <html lang="es">
+  <!-- Define el idioma principal del contenido -->
   <head>
     <meta charset="UTF-8" />
+    <!-- Especifica el conjunto de caracteres utilizado -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Hace que la página sea responsiva -->
     <title>Registro de Citas</title>
+    <!-- Título que aparecerá en la pestaña del navegador -->
     <link rel="stylesheet" href="css/styles_Citas.css" />
+    <!-- Enlace al archivo CSS -->
     <!-- Flatpickr para personalizar el calendario -->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
     />
+    <!-- Enlace al archivo CSS de Flatpickr -->
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <!-- Enlace al archivo JS de Flatpickr -->
   </head>
   <body>
     <div class="contenedor">
       <form action="php/guardarCita.php" method="POST">
+        <!-- Envía los datos del formulario vía POST -->
         <h1>Registro de Citas</h1>
+        <!-- Encabezado principal -->
 
         <label for="doc_paciente">Documento del Paciente:</label>
+        <!-- Etiqueta para el campo "Documento del Paciente" -->
         <input
           type="text"
           id="doc_paciente"
           name="doc_paciente"
           required
           onblur="autocompletarPaciente()"
+          <!--
+          Llama
+          a
+          la
+          función
+          para
+          autocompletar
+          datos
+          --
         />
 
         <label for="nombre_paciente">Nombre del Paciente:</label>
+        <!-- Etiqueta para el campo "Nombre del Paciente" -->
         <input
           type="text"
           id="nombre_paciente"
           name="nombre_paciente"
           readonly
+          <!--
+          Campo
+          solo
+          lectura
+          --
         />
 
         <label for="apellido_paciente">Apellido del Paciente:</label>
+        <!-- Etiqueta para el campo "Apellido del Paciente" -->
         <input
           type="text"
           id="apellido_paciente"
           name="apellido_paciente"
           readonly
+          <!--
+          Campo
+          solo
+          lectura
+          --
         />
 
         <label for="celular_paciente">Celular del Paciente:</label>
+        <!-- Etiqueta para el campo "Celular del Paciente" -->
         <input
           type="text"
           id="celular_paciente"
           name="celular_paciente"
           readonly
+          <!--
+          Campo
+          solo
+          lectura
+          --
         />
 
         <label for="nombre_medico">Médico:</label>
+        <!-- Etiqueta para el campo "Médico" -->
         <select id="nombre_medico" name="nombre_medico" required>
+          <!-- Selector para elegir médico -->
           <option value="">Selecciona un médico</option>
         </select>
 
         <label for="nombre_clinica">Clínica:</label>
+        <!-- Etiqueta para el campo "Clínica" -->
         <select id="nombre_clinica" name="nombre_clinica" required>
+          <!-- Selector para elegir clínica -->
           <option value="">Selecciona una clínica</option>
         </select>
 
         <label for="fecha_cita">Fecha de la Cita:</label>
+        <!-- Etiqueta para el campo "Fecha de la Cita" -->
         <input type="text" id="fecha_cita" name="fecha_cita" required />
+        <!-- Campo para seleccionar la fecha -->
 
         <label for="hora_cita">Hora de la Cita:</label>
+        <!-- Etiqueta para el campo "Hora de la Cita" -->
         <input type="text" id="hora_cita" name="hora_cita" required />
+        <!-- Campo para seleccionar la hora -->
 
         <button type="submit">Guardar Cita</button>
+        <!-- Botón para enviar el formulario -->
       </form>
       <a href="index.html" class="regresar">Regresar</a>
+      <!-- Enlace para volver a la página de inicio -->
     </div>
 
     <script>
@@ -76,26 +123,26 @@
       document.addEventListener("DOMContentLoaded", function () {
         // Selector de fecha
         flatpickr("#fecha_cita", {
-          dateFormat: "Y-m-d",
+          dateFormat: "Y-m-d", // Formato de fecha
           disable: [
             function (date) {
               return date.getDay() === 0; // Desactiva domingos
             },
           ],
-          locale: "es",
+          locale: "es", // Idioma español
         });
 
         // Selector de hora con intervalos de 30 minutos
         flatpickr("#hora_cita", {
-          enableTime: true,
-          noCalendar: true,
-          dateFormat: "H:i",
-          time_24hr: true,
+          enableTime: true, // Habilita selección de hora
+          noCalendar: true, // Desactiva el calendario
+          dateFormat: "H:i", // Formato de hora
+          time_24hr: true, // Usa formato de 24 horas
           enable: [
-            { from: "08:00", to: "11:30" },
-            { from: "13:00", to: "16:30" },
+            { from: "08:00", to: "11:30" }, // Intervalo de mañana
+            { from: "13:00", to: "16:30" }, // Intervalo de tarde
           ],
-          minuteIncrement: 30,
+          minuteIncrement: 30, // Incrementos de 30 minutos
         });
 
         // Cargar médicos y clínicas dinámicamente
@@ -104,17 +151,17 @@
       });
 
       function cargarMedicos() {
-        fetch("php/medicos.php")
+        fetch("php/medicos.php") // Obtiene la lista de médicos desde el servidor
           .then((response) => response.json())
           .then((data) => {
             if (data.success) {
               const selectMedicos = document.getElementById("nombre_medico");
-              selectMedicos.innerHTML = "";
+              selectMedicos.innerHTML = ""; // Limpia el selector
               data.data.forEach((medico) => {
                 const option = document.createElement("option");
-                option.value = medico;
-                option.textContent = medico;
-                selectMedicos.appendChild(option);
+                option.value = medico; // Asigna el valor del médico
+                option.textContent = medico; // Asigna el texto del médico
+                selectMedicos.appendChild(option); // Agrega la opción al selector
               });
             } else {
               alert(data.message || "Error al cargar los médicos.");
@@ -127,17 +174,17 @@
       }
 
       function cargarClinicas() {
-        fetch("php/clinicas.php")
+        fetch("php/clinicas.php") // Obtiene la lista de clínicas desde el servidor
           .then((response) => response.json())
           .then((data) => {
             if (data.success) {
               const selectClinicas = document.getElementById("nombre_clinica");
-              selectClinicas.innerHTML = "";
+              selectClinicas.innerHTML = ""; // Limpia el selector
               data.data.forEach((clinica) => {
                 const option = document.createElement("option");
-                option.value = clinica;
-                option.textContent = clinica;
-                selectClinicas.appendChild(option);
+                option.value = clinica; // Asigna el valor de la clínica
+                option.textContent = clinica; // Asigna el texto de la clínica
+                selectClinicas.appendChild(option); // Agrega la opción al selector
               });
             } else {
               alert(data.message || "Error al cargar las clínicas.");
@@ -157,7 +204,7 @@
           return;
         }
 
-        fetch(`php/autocompletarPaciente.php?doc_paciente=${docPaciente}`)
+        fetch(`php/autocompletarPaciente.php?doc_paciente=${docPaciente}`) // Autocompleta los datos del paciente
           .then((response) => {
             if (!response.ok) {
               throw new Error("Error en la respuesta del servidor.");
@@ -166,10 +213,10 @@
           })
           .then((data) => {
             if (data.success) {
-              document.getElementById("nombre_paciente").value = data.nombre;
+              document.getElementById("nombre_paciente").value = data.nombre; // Asigna el nombre
               document.getElementById("apellido_paciente").value =
-                data.apellido;
-              document.getElementById("celular_paciente").value = data.celular;
+                data.apellido; // Asigna el apellido
+              document.getElementById("celular_paciente").value = data.celular; // Asigna el celular
             } else {
               alert(data.message || "Paciente no encontrado.");
             }

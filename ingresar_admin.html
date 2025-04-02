@@ -1,18 +1,26 @@
 <!DOCTYPE html>
 <html lang="es">
+  <!-- Define el idioma principal del contenido -->
   <head>
     <meta charset="UTF-8" />
+    <!-- Especifica el conjunto de caracteres utilizado -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Hace que la página sea responsiva -->
     <title>Ingresar Nuevo Administrador</title>
+    <!-- Título que aparecerá en la pestaña del navegador -->
     <link rel="stylesheet" href="css/styles_ingadmin.css" />
+    <!-- Enlace al archivo CSS externo -->
     <!-- CSS ajustado -->
   </head>
   <body>
     <main class="contenedor">
       <h1>Ingresar Nuevo Administrador</h1>
+      <!-- Encabezado principal de la página -->
       <div class="formulario">
         <form action="php/guardar_admin.php" method="POST">
+          <!-- Envía los datos del formulario vía POST al archivo PHP -->
           <label for="usuario_admin">Usuario:</label>
+          <!-- Etiqueta para el campo de texto "Usuario" -->
           <input
             type="text"
             id="usuario_admin"
@@ -20,8 +28,10 @@
             placeholder="Escriba el usuario"
             required
           />
+          <!-- Campo de entrada para el nombre de usuario -->
 
           <label for="contrasena_admin">Contraseña:</label>
+          <!-- Etiqueta para el campo "Contraseña" -->
           <input
             type="password"
             id="contrasena_admin"
@@ -29,10 +39,13 @@
             placeholder="Escriba la contraseña"
             required
           />
+          <!-- Campo de entrada para la contraseña -->
 
           <button type="submit" class="boton">Guardar</button>
+          <!-- Botón para enviar el formulario -->
         </form>
         <a href="index.html" class="link">Regresar</a>
+        <!-- Enlace para volver al índice -->
       </div>
     </main>
   </body>

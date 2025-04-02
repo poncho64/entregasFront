@@ -2,28 +2,39 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
+    <!-- Define el conjunto de caracteres para soportar caracteres especiales -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Hace el sitio web responsivo -->
     <title>Ingreso de Usuario</title>
+    <!-- Título de la página -->
     <link rel="stylesheet" href="css/stylesRegistro.css" />
+    <!-- Vincula el archivo de estilos CSS -->
   </head>
   <body>
     <main class="contenedor">
       <h1>Clinicas-Medicos</h1>
+      <!-- Encabezado principal de la página -->
       <div class="card">
         <!-- Formulario de ingreso -->
         <form action="php/procesar_admin.php" method="POST">
+          <!-- Envia los datos al servidor vía PHP -->
           <label for="usuario_admin">Documento:</label>
+          <!-- Etiqueta para el campo "Documento" -->
           <input type="text" id="usuario_admin" name="usuario_admin" required />
+          <!-- Campo de entrada para el documento -->
 
           <label for="contrasena_admin">Contraseña:</label>
+          <!-- Etiqueta para el campo "Contraseña" -->
           <input
             type="password"
             id="contrasena_admin"
             name="contrasena_admin"
             required
           />
+          <!-- Campo de entrada para la contraseña -->
 
           <button type="submit">Ingresar</button>
+          <!-- Botón para enviar el formulario -->
         </form>
       </div>
     </main>

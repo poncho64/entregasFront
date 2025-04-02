@@ -1,29 +1,41 @@
 <!DOCTYPE html>
 <html lang="es">
+  <!-- Define el idioma principal del contenido -->
   <head>
     <meta charset="UTF-8" />
+    <!-- Especifica el conjunto de caracteres utilizado -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Hace que la página sea responsiva -->
     <title>Ingreso de Usuario</title>
+    <!-- Título que aparecerá en la pestaña del navegador -->
     <link rel="stylesheet" href="css/stylesRegistro.css" />
+    <!-- Enlace al archivo CSS externo -->
   </head>
   <body>
     <main class="contenedor">
-      <h1>Super Adminstrador</h1>
+      <h1>Super Administrador</h1>
+      <!-- Encabezado principal de la página -->
       <div class="card">
         <!-- Formulario de ingreso -->
         <form action="php/procesar_super.php" method="POST">
+          <!-- Enviar datos del formulario vía POST al archivo PHP -->
           <label for="usuario_super">Usuario:</label>
+          <!-- Etiqueta para el campo "Usuario" -->
           <input type="text" id="usuario_super" name="usuario_super" required />
+          <!-- Campo de entrada para el usuario -->
 
           <label for="contrasena_super">Contraseña:</label>
+          <!-- Etiqueta para el campo "Contraseña" -->
           <input
             type="password"
             id="contrasena_super"
             name="contrasena_super"
             required
           />
+          <!-- Campo de entrada para la contraseña -->
 
           <button type="submit">Ingresar</button>
+          <!-- Botón para enviar el formulario -->
         </form>
       </div>
     </main>

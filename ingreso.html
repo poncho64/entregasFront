@@ -1,96 +1,127 @@
 <!DOCTYPE html>
 <html lang="es">
+  <!-- Define el idioma principal del contenido -->
   <head>
     <meta charset="UTF-8" />
+    <!-- Especifica el conjunto de caracteres utilizado -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Hace la página responsiva -->
     <title>Ingreso de Usuario</title>
+    <!-- Título que aparecerá en la pestaña del navegador -->
     <link rel="stylesheet" href="css/stylesRegistro.css" />
+    <!-- Enlace al archivo CSS -->
   </head>
   <body>
     <main class="contenedor">
       <h1>Pedir Cita</h1>
+      <!-- Encabezado principal -->
       <div class="card">
         <!-- Formulario de ingreso -->
         <form action="php/procesar_registro.php" method="POST">
+          <!-- Envía los datos del formulario al archivo PHP -->
           <label for="doc_paciente">Documento:</label>
+          <!-- Etiqueta para el campo "Documento" -->
           <input type="text" id="doc_paciente" name="doc_paciente" required />
+          <!-- Campo para ingresar el documento -->
 
           <label for="contrasena_paciente">Contraseña:</label>
+          <!-- Etiqueta para el campo "Contraseña" -->
           <input
             type="password"
             id="contrasena_paciente"
             name="contrasena_paciente"
             required
           />
+          <!-- Campo para ingresar la contraseña -->
 
           <button type="submit">Ingresar</button>
+          <!-- Botón para enviar el formulario -->
         </form>
 
         <!-- Botón para abrir el formulario flotante -->
         <button id="registrar-btn">Registrarme</button>
+        <!-- Abre el modal para registro de nuevos usuarios -->
 
         <a href="index.html" class="regresar">Regresar</a>
+        <!-- Enlace para volver a la página de inicio -->
       </div>
 
       <!-- Modal (Formulario Flotante) -->
       <div id="registro-modal" class="modal">
+        <!-- Contenedor del modal -->
         <div class="modal-content">
           <span class="close">&times;</span>
+          <!-- Botón para cerrar el modal -->
           <h2>Registro de Nuevo Usuario</h2>
+          <!-- Encabezado del modal -->
           <form
             action="php/guardar_usuario.php"
             method="POST"
             enctype="multipart/form-data"
           >
+            <!-- Enviar datos del formulario y archivo a través de POST -->
             <label for="doc_paciente_modal">Documento:</label>
+            <!-- Etiqueta para "Documento" -->
             <input
               type="text"
               id="doc_paciente_modal"
               name="doc_paciente"
               required
             />
+            <!-- Campo para documento -->
 
             <label for="nombre_paciente">Nombre:</label>
+            <!-- Etiqueta para "Nombre" -->
             <input
               type="text"
               id="nombre_paciente"
               name="nombre_paciente"
               required
             />
+            <!-- Campo para nombre -->
 
             <label for="apellido_paciente">Apellido:</label>
+            <!-- Etiqueta para "Apellido" -->
             <input
               type="text"
               id="apellido_paciente"
               name="apellido_paciente"
               required
             />
+            <!-- Campo para apellido -->
 
             <label for="celular_paciente">Celular:</label>
+            <!-- Etiqueta para "Celular" -->
             <input
               type="text"
               id="celular_paciente"
               name="celular_paciente"
               required
             />
+            <!-- Campo para celular -->
 
             <label for="correo_paciente">Correo:</label>
+            <!-- Etiqueta para "Correo" -->
             <input
               type="email"
               id="correo_paciente"
               name="correo_paciente"
               required
             />
+            <!-- Campo para correo -->
 
             <label for="contrasena_paciente_modal">Contraseña:</label>
+            <!-- Etiqueta para "Contraseña" -->
             <input
               type="password"
               id="contrasena_paciente_modal"
               name="contrasena_paciente"
               required
             />
+            <!-- Campo para contraseña -->
 
             <label for="foto_paciente">Foto:</label>
+            <!-- Etiqueta para "Foto" -->
             <input
               type="file"
               id="foto_paciente"
@@ -98,19 +129,23 @@
               accept="image/*"
               required
             />
+            <!-- Campo para cargar la foto -->
             <img
               id="preview"
               src=""
               alt="Vista previa de la foto"
               style="display: none; max-width: 200px; margin-top: 10px"
             />
+            <!-- Imagen de vista previa -->
 
             <button type="submit">Registrar</button>
+            <!-- Botón para enviar el formulario de registro -->
           </form>
         </div>
       </div>
     </main>
 
     <script src="js/modal.js"></script>
+    <!-- Archivo JS para manejar el modal -->
   </body>
 </html>

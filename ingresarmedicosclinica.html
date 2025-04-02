@@ -1,20 +1,29 @@
 <!DOCTYPE html>
 <html lang="es">
+  <!-- Define el idioma principal del contenido -->
   <head>
     <meta charset="UTF-8" />
+    <!-- Especifica el conjunto de caracteres utilizado -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Hace que la página sea responsiva -->
     <title>Registro Clínicas y Médicos</title>
+    <!-- Título que aparecerá en la pestaña del navegador -->
     <link rel="stylesheet" href="css/styleclimedico.css" />
+    <!-- Enlace al archivo CSS externo -->
     <!-- Enlace al CSS ajustado -->
   </head>
   <body>
     <main class="contenedor">
       <h1>Registro de Clínicas y Médicos</h1>
+      <!-- Encabezado principal de la página -->
       <div class="formularios">
         <!-- Formulario para Clínicas -->
         <form action="php/guardarclinica.php" method="POST" class="formulario">
+          <!-- Envía los datos del formulario de clínicas vía POST -->
           <h2>Registro de Clínica</h2>
+          <!-- Subtítulo del formulario de clínicas -->
           <label for="nombre_clinica">Nombre:</label>
+          <!-- Etiqueta para el campo "Nombre" -->
           <input
             type="text"
             id="nombre_clinica"
@@ -22,8 +31,10 @@
             placeholder="Nombre de la clínica"
             required
           />
+          <!-- Campo de entrada para el nombre de la clínica -->
 
           <label for="direccion_clinica">Dirección:</label>
+          <!-- Etiqueta para el campo "Dirección" -->
           <input
             type="text"
             id="direccion_clinica"
@@ -31,8 +42,10 @@
             placeholder="Dirección de la clínica"
             required
           />
+          <!-- Campo de entrada para la dirección de la clínica -->
 
           <label for="celular_clinica">Celular:</label>
+          <!-- Etiqueta para el campo "Celular" -->
           <input
             type="text"
             id="celular_clinica"
@@ -40,8 +53,10 @@
             placeholder="Celular de contacto"
             required
           />
+          <!-- Campo de entrada para el celular de contacto -->
 
           <label for="fijo_clinica">Teléfono Fijo:</label>
+          <!-- Etiqueta para el campo "Teléfono Fijo" -->
           <input
             type="text"
             id="fijo_clinica"
@@ -49,8 +64,10 @@
             placeholder="Teléfono fijo"
             required
           />
+          <!-- Campo de entrada para el teléfono fijo -->
 
           <label for="contacto_clinica">Contacto:</label>
+          <!-- Etiqueta para el campo "Contacto" -->
           <input
             type="text"
             id="contacto_clinica"
@@ -58,14 +75,19 @@
             placeholder="ID del contacto"
             required
           />
+          <!-- Campo de entrada para el ID del contacto -->
 
           <button type="submit" class="boton">Guardar Clínica</button>
+          <!-- Botón para enviar el formulario de clínicas -->
         </form>
 
         <!-- Formulario para Médicos -->
         <form action="php/guardarmedico.php" method="POST" class="formulario">
+          <!-- Envía los datos del formulario de médicos vía POST -->
           <h2>Registro de Médico</h2>
+          <!-- Subtítulo del formulario de médicos -->
           <label for="nombre_medico">Nombre:</label>
+          <!-- Etiqueta para el campo "Nombre" -->
           <input
             type="text"
             id="nombre_medico"
@@ -73,8 +95,10 @@
             placeholder="Nombre del médico"
             required
           />
+          <!-- Campo de entrada para el nombre del médico -->
 
           <label for="apellido_medico">Apellido:</label>
+          <!-- Etiqueta para el campo "Apellido" -->
           <input
             type="text"
             id="apellido_medico"
@@ -82,8 +106,10 @@
             placeholder="Apellido del médico"
             required
           />
+          <!-- Campo de entrada para el apellido del médico -->
 
           <label for="celular_medico">Celular:</label>
+          <!-- Etiqueta para el campo "Celular" -->
           <input
             type="text"
             id="celular_medico"
@@ -91,8 +117,10 @@
             placeholder="Celular del médico"
             required
           />
+          <!-- Campo de entrada para el celular del médico -->
 
           <label for="contrasena_medico">Contraseña:</label>
+          <!-- Etiqueta para el campo "Contraseña" -->
           <input
             type="password"
             id="contrasena_medico"
@@ -100,11 +128,14 @@
             placeholder="Contraseña"
             required
           />
+          <!-- Campo de entrada para la contraseña del médico -->
 
           <button type="submit" class="boton">Guardar Médico</button>
+          <!-- Botón para enviar el formulario de médicos -->
         </form>
       </div>
       <a href="index.html" class="regresar">Regresar</a>
+      <!-- Enlace para volver al índice -->
     </main>
   </body>
 </html>
